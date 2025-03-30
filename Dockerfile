@@ -153,10 +153,12 @@ RUN mkdir -p /run/renderd/ \
   &&  ln  -s  /data/tiles              /var/cache/renderd/tiles                \
 ;
 
+COPY mapnik-en.xml /home/renderer/src/openstreetmap-carto/
+
 RUN echo '[default] \n\
 URI=/tile/ \n\
 TILEDIR=/var/cache/renderd/tiles \n\
-XML=/home/renderer/src/openstreetmap-carto/mapnik.xml \n\
+XML=/home/renderer/src/openstreetmap-carto/mapnik-en.xml \n\
 HOST=localhost \n\
 TILESIZE=256 \n\
 MAXZOOM=20' >> /etc/renderd.conf \
